@@ -21,7 +21,7 @@ function deep_page_content(){
 
 }
 
-<!-- Complete code :: start -->
+<!-- Complete code :: Start -->
 
 add_action( 'admin_init',  'deep_register_setting' );
 
