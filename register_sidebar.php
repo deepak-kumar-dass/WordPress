@@ -24,3 +24,26 @@ add_action( 'widgets_init', 'wpdocs_theme_slug_widgets_init' );
         <?php dynamic_sidebar('your-sidebar-slug'); ?>
     </ul>
 <?php } ?>
+
+<!-- Altenate way to register multiple sidebar widgets -->
+
+/* Better way to add multiple widgets areas */
+function widget_registration($name, $id, $description,$beforeWidget, $afterWidget, $beforeTitle, $afterTitle){
+    register_sidebar( array(
+        'name' => $name,
+        'id' => $id,
+        'description' => $description,
+        'before_widget' => $beforeWidget,
+        'after_widget' => $afterWidget,
+        'before_title' => $beforeTitle,
+        'after_title' => $afterTitle,
+    ));
+}
+ 
+function multiple_widget_init(){
+    widget_registration('Footer widget 1', 'footer-sidebar-1', 'test', '', '', '', '');
+    widget_registration('Footer widget 2', 'footer-sidebar-2', 'test', '', '', '', '');
+    // ETC...
+}
+ 
+add_action('widgets_init', 'multiple_widget_init');
